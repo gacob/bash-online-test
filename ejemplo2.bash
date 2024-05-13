@@ -21,6 +21,8 @@ start_server() {
     # Crear un socket en el puerto 12345
     touch server_pipe
 
+    # < = Leer
+    # > = Escribir
     ncat --broker -klvp 8080 < server_pipe | while true; do
     #nc -lvk 80 < server_pipe | while true; do
         read player1_selection

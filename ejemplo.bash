@@ -8,19 +8,19 @@ puntuaciones=(0 0) # Puntuaciones de los jugadores (índice 0: jugador 1, índic
 # Función para manejar la conexión de un jugador
 function manejar_jugador() {
   # Obtener el socket del jugador
-  socket=<span class="math-inline">1
-\# Bucle de juego
-while true; do
-\# Recibir la jugada del jugador
-jugada\=(nc -l $socket | tr [:upper:] [:lower:])
+  socket=1
+  # Bucle de juego
+  while true; do
+    # Recibir la jugada del jugador
+    jugada=(nc -l $socket | tr [:upper:] [:lower:])
 
     # Validar la jugada
-    if [[ ! <span class="math-inline">jugada \=\~ ^\(piedra\|papel\|tijera\)</span> ]]; then
-      echo "Jugada inválida: $jugada" >&<span class="math-inline">socket
-continue
-fi
+      if [[ ! jugada = ^\(piedra\|papel\|tijera\) ]]; then
+      echo "Jugada inválida: $jugada" >&socket
+      continue
+      fi
 \# Buscar al oponente
-oponente\_index\=((1 - $(echo "$jugadores" | index "<span class="math-inline">socket"\)\)\)
+oponente\_index\=((1 - $(echo "$jugadores" | index socket \)\)\)
 oponente\_socket\={jugadores[$oponente_index]}
 
     # Si no hay oponente, esperar

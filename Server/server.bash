@@ -1,17 +1,25 @@
 #!/bin/bash
 
 
-# Definir variables
-puerto=80 # Puerto para el servidor
-jugadores=( ) # Lista de jugadores conectados
-puntuaciones=(0 0) # Puntuaciones de los jugadores (índice 0: jugador 1, índice 1: jugador 2)
-count=0
-max=0
+# Source
+source data/inicio.bash
+source data/first_turn.bash
+source data/second_turn.bash
 
-PORT=3000
-IP=192.168.2.174
-# echo PONG | nc -ns 192.168.2.174 3000
-# nc -l -p $PORT -s $IP -k
-#nc -lNk localhost 8080
-nc -lvNk 192.168.2.174 3000
 
+# Iniciar el servidor
+start_server() {
+    echo "Esperando a los dos jugadores..."
+
+    # Crear un socket en el puerto 12345
+    touch server_data
+    touch list_ip
+
+    # < = Leer
+    # > = Escribir
+    ncat -m 2 -eklvp 8080 -e "inicio.bash"
+    rm server_data
+    rm list_ip
+}
+
+start_server

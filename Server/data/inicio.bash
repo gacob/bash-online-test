@@ -18,13 +18,13 @@ inicio() {
    esac
 
     # Almacenamos las IP para Debug
-    echo $cliente_ip_1 > list_ip
+    echo $cliente_ip_1 >> list_ip
     echo $cliente_ip_2 >> list_ip
 
 
     # Turno aleatorio. Se sale del turno al morir
     randomturn=$(( RANDOM%1 ))
-    while [[ $first_hp -gt 0 && $second_hp -gt 0 ]]; do
+    while [[ $count -eq 3 && $first_hp -gt 0 && $second_hp -gt 0 ]]; do
         if [[ $randomturn -eq 0 ]]; then
             first_turn
             second_turn

@@ -4,21 +4,22 @@ inicio() {
 
    # Contador para asignar IP a jugadores
    case $count in
-    0)  cliente_ip_1=$NCAT_REMOTE_ADDR
-        echo $cliente_ip_1
+    1)  cliente_ip_1=$NCAT_REMOTE_ADDR
+        echo Esta es tu IP: $cliente_ip_1
         count=$(( count + 1 ))
         ;;
-    1) cliente_ip_2=$NCAT_REMOTE_ADDR
-        echo $cliente_ip_2
+    2) cliente_ip_2=$NCAT_REMOTE_ADDR
+        echo Esta es tu IP: $cliente_ip_2
         count=$(( count + 1 ))
         ;;
-    2) echo No admite más conexiones
-    exit
+    3) echo No admite más conexiones
+        exit
+        ;;
    esac
 
     # Almacenamos las IP para Debug
-    $cliente_ip_1 > list_ip
-    $cliente_ip_2 >> list_ip
+    echo $cliente_ip_1 > list_ip
+    echo $cliente_ip_2 >> list_ip
 
 
     # Turno aleatorio. Se sale del turno al morir
@@ -47,3 +48,4 @@ inicio() {
     count=0
 }
 
+inicio()

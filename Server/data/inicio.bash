@@ -48,4 +48,4 @@ inicio() {
     count=0
 }
 
-inicio()
+inicio

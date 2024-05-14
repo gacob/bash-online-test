@@ -14,7 +14,7 @@ start_server() {
     # Crear un socket en el puerto 12345
     touch server_data
     touch list_ip
-    count=1
+    export count=1
 
     # < = Leer
     # > = Escribir

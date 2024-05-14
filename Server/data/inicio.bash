@@ -12,9 +12,6 @@ inicio() {
         echo Esta es tu IP: $cliente_ip_2
         count=$(( count + 1 ))
         ;;
-    3) echo No admite más conexiones
-        exit
-        ;;
    esac
 
     # Almacenamos las IP para Debug

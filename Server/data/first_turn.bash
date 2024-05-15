@@ -1,11 +1,13 @@
 #!/bin/bash
 
-first_hp=100
-
 first_turn() {
-    player=$NCAT_REMOTE_ADDR
-    echo Actual: $NCAT_REMOTE_ADDR
-    if [[ $player -eq $cliente_ip_1 ]]; then
+    current=$NCAT_REMOTE_ADDR
+    current="${current//./}"
+
+    echo Mía: $NCAT_REMOTE_ADDR
+    echo Actual: $current
+
+    if [[ "$current" -eq "$cliente_ip_1" ]]; then
         echo "Turno del Jugador 1"
         echo ¿Cuánto daño vas a hacer?
         read -r my_damage

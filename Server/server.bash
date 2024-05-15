@@ -1,26 +1,20 @@
 #!/bin/bash
 
-
-# Source
 source data/inicio.bash
-source data/first_turn.bash
-source data/second_turn.bash
-
 
 # Iniciar el servidor
 start_server() {
     echo "Esperando a los dos jugadores..."
 
     # Crear un socket en el puerto 12345
-    touch server_data
     touch list_ip
     export count=1
+    export first_hp=100
+    export second_hp=100
 
     # < = Leer
     # > = Escribir
-    ncat -m 2 -klvp 8080 -e "data/inicio.bash"
-    rm list_ip
-    rm server_data
+    ncat -m 2 -klv localhost 8080 -e "data/inicio.bash"
 }
 
 start_server

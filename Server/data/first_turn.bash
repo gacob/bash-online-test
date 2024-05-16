@@ -14,7 +14,7 @@ first_turn() {
 
         second_hp=$(( second_hp - my_damage ))
         echo Has hecho "$my_damage" > server_data
-        echo "Al Jugador 2 le queda $second_hp" > server_data
+        echo "Al Jugador 2 le queda $second_hp" >> server_data
         my_damage=0
     else
         echo Es el turno del rival

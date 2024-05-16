@@ -22,6 +22,8 @@ inicio() {
     # Almacenamos las IP para Debug
     echo $cliente_ip_1 >> list_ip
     echo $cliente_ip_2 >> list_ip
+    echo "ip 1" $cliente_ip_1
+    echo "ip 2" $cliente_ip_2
 
     # Turno aleatorio. Se sale del turno al morir
     randomturn=$(( RANDOM%1 ))
@@ -36,7 +38,7 @@ inicio() {
     done
 
     # Comprueba ganador
-    if [[ $firt_hp -le 0 ]]; then
+    if [[ $first_hp -le 0 ]]; then
         echo "El Jugador 1 ha ganado" > server_data
     
     else

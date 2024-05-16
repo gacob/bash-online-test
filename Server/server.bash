@@ -14,7 +14,7 @@ start_server() {
 
     # < = Leer
     # > = Escribir
-    ncat -m 2 -klv localhost 8080 -e "data/inicio.bash"
+    ncat -m 2 -klv 8080 -e "data/inicio.bash"
 }
 
 start_server

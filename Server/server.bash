@@ -4,7 +4,6 @@ source data/inicio.bash
 
 # Iniciar el servidor
 start_server() {
-    echo "Esperando a los dos jugadores..."
 
     # Crear un socket en el puerto 12345
     rm list_ip

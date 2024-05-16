@@ -23,14 +23,13 @@ start_server() {
 
     # < = Leer
     # > = Escribir
-    ncat --broker -klvp 8080 < server_pipe | while true; do
-    #nc -lvk 80 < server_pipe | while true; do
+    ncat -klvp 8080 < server_pipe | while true; do
         read player1_selection
         echo "$player1_selection" > server_pipe
         read player2_selection
         echo "$player2_selection" > server_pipe
         get_winner "$player1_selection" "$player2_selection"
-    done 3< server_pipe
+    done
 }
 
 start_server

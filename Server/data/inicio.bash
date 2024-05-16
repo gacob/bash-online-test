@@ -19,9 +19,9 @@ inicio() {
 
     # Almacenamos las IP para Debug
     echo $cliente_ip_1 >> list_ip
-    cliente_ip_1=$( sed -n 2p list_ip )
+    cliente_ip_1=$( sed -n 1p list_ip )
     while [[ $cliente_ip_1 != "" && $cliente_ip_2 == "" ]]; do
-        cliente_ip_2=$( sed -n 3p list_ip )
+        cliente_ip_2=$( sed -n 2p list_ip )
     done
 
     echo "ip 1" $cliente_ip_1

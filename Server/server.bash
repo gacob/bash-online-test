@@ -7,6 +7,7 @@ start_server() {
     echo "Esperando a los dos jugadores..."
 
     # Crear un socket en el puerto 12345
+    rm list_ip
     touch list_ip
     export count=1
     export first_hp=100
